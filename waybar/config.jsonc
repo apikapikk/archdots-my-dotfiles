@@ -1,0 +1,121 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "gtk-layer-shell": true,
+    "exclusive": false,
+    "mode": "dock",
+    "pass-through": false,
+    "height": 20,
+    "width": 1280, 
+    "margin-top": 20,
+    "margin-bottom":20,
+    "spacing": 5,
+    // Choose the order of the modules
+    "modules-left": [
+        "sway/workspaces"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "battery",
+        "custom/brightness",
+        "clock",
+        "custom/power"
+    ],
+    // Modules configuration
+    // "sway/workspaces": {
+    //     "disable-scroll": true,
+    //     "all-outputs": true,
+    //     "warp-on-scroll": false,
+    //     "format": "{name}: {icon}",
+    //     "format-icons": {
+    //         "1": "",
+    //         "2": "",
+    //         "3": "",
+    //         "4": "",
+    //         "5": "",
+    //         "urgent": "",
+    //         "focused": "",
+    //         "default": ""
+    //     }
+    // },
+   "custom/window": {
+        "exec": "~/.config/waybar/scripts/window_title.sh",
+        "interval": 1,
+        "return-type": "text"
+    },
+        "custom/brightness": {
+        "format": "☀️ {}%",
+        "exec": "brightnessctl g | awk '{printf \"%d\", ($1/255)}'",
+        "interval": 5,
+        "on-scroll-up": "~/.config/waybar/scripts/brightness-scroll.sh up",
+        "on-scroll-down": "~/.config/waybar/scripts/brightness-scroll.sh down"
+        },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% unplugged",
+        "format-full": "{capacity}% fulled",
+        "format-charging": "{capacity}% charging",
+        "format-alt": "{time} {icon}"
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "nmtui"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/power": {
+        "format" : "⏻ ",
+		"tooltip": false,
+		"on-click": "~/.config/waybar/scripts/wlogout-blur.sh"
+    }
+}

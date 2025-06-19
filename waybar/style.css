@@ -1,0 +1,197 @@
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: JetBrains Mono;
+    font-size: 14px;
+    font-weight: bolder;
+    background: transparent;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+window#waybar {
+    background-image: linear-gradient(to bottom, #ffffff 50%);
+    color: #000000;
+    transition-property: background-color;
+    border-style: none;
+    border-color: #020202;
+    border-width: 2px;
+    border-radius: 6px;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+
+/* you can set a style on hover for any module like this */
+#pulseaudio:hover {
+    background-color: #e5d29e;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    border-style: none;
+    border-radius: 5px;
+    color: #000000;
+}
+
+#workspaces button.focused {
+    background-color: #131313;
+    color: #ffffff;
+}
+
+
+#clock,
+#battery,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#mpd {
+    padding: 0 10px;
+    color: #000000;
+}
+
+#window,
+#workspaces {
+    margin: 0px 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    background-color: #ffffff;
+}
+
+#battery {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+    background-color: #262e29;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#power-profiles-daemon {
+    padding-right: 15px;
+}
+
+#power-profiles-daemon.performance {
+    background-color: #f53c3c;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: #2980b9;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: #2ecc71;
+    color: #000000;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#backlight {
+    background-color: #ffffff;
+}
+
+#network {
+    background-color: #103f5f;
+    color: #ffffff;
+    padding-right: 20px;
+}
+
+#network.disconnected {
+    background-color: #ff0c0c;
+    color: white;
+    padding-right: 10px;
+}
+
+#pulseaudio {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+
+#wireplumber {
+    background-color: #fff0f5;
+    color: #000000;
+}
+
+#wireplumber.muted {
+    background-color: #f53c3c;
+}
+
+#custom-power {
+    font-size: 24px;
+    background-color: #000000;
+    color: white;
+    padding-left: 20px;
+}
+
+#custom-window {
+    font-size: 16px;
+    padding-right: 30px;
+}

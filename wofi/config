@@ -1,0 +1,10 @@
+show=drun
+term=kitty
+prompt=Cari Aplikasi
+insentive=true
+hide_scroll=true
+lines=8
+columns=1
+width=20%
+height=40%
+location=center

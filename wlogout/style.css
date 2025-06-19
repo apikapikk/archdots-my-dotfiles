@@ -1,0 +1,51 @@
+* {
+	background-image: none;
+	box-shadow: none;
+}
+
+/* Background redup transparan */
+window {
+	background-color: rgba(0, 0, 0, 0.3); /* tipis gelap */
+}
+
+/* Tombol transparan dengan blur lebih terang */
+button {
+	border-radius: 16px;
+	padding: 20px;
+	color: white;
+	border-style: none;
+	background-color: rgba(255, 255, 255, 0.06); /* transparan cerah */
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+}
+
+/* Hover efek lebih cerah */
+button:focus, button:active, button:hover {
+	background-color: rgba(255, 255, 255, 0.12); /* lebih cerah saat hover */
+}
+
+/* Icon untuk tombol */
+#lock {
+	background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+}
+
+#logout {
+	background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+}
+
+#suspend {
+	background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
+}
+
+#hibernate {
+	background-image: image(url("/usr/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
+}
+
+#shutdown {
+	background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+	background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+}
