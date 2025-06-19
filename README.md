@@ -6,8 +6,7 @@ Dotfiles pribadi saya untuk setup Arch Linux yang ringan, estetis, dan fungsiona
 
 **🖥️ Tampilan Desktop Utama**
 <img src="screenshot/1.png" width="700">
-**🚀 Wofi Launcher**
-<img src="screenshot/2.png" width="700">
+
 **🔒 Wlogout Interface**
 <img src="screenshot/3.png" width="700">
 
