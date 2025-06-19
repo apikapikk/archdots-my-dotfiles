@@ -1,4 +1,4 @@
-# 🧠 Arch Linux Dotfiles by @apikapikk
+# 🧠 Arch Linux Dotfiles
 
 Dotfiles pribadi saya untuk setup Arch Linux yang ringan, estetis, dan fungsional. Menggunakan **SwayWM** sebagai window manager utama berbasis **Wayland**, dengan integrasi beberapa tools modern seperti Waybar, Wofi, Fastfetch, dan Fish Shell.
 
