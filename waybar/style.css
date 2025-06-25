@@ -5,18 +5,17 @@
     font-size: 14px;
     font-weight: bolder;
     background: transparent;
-    border-radius: 3px;
-    padding: 3px;
+    border-radius: 2px;
+    padding: 5px;
 }
 
 window#waybar {
     background-image: linear-gradient(to bottom, #ffffff 50%);
     color: #000000;
     transition-property: background-color;
-    border-style: none;
+    border-style: solid;
     border-color: #020202;
     border-width: 2px;
-    border-radius: 6px;
     transition-duration: .5s;
 }
 
@@ -51,7 +50,7 @@ window#waybar.chromium {
 #workspaces button {
     padding: 0 5px;
     border-style: none;
-    border-radius: 5px;
+    border-radius: 2px;
     color: #000000;
 }
 

@@ -1,0 +1,22 @@
+(defwidget logout []
+  (box
+    :orientation "vertical"
+    :spacing 20
+    :halign "center"
+    :valign "center"
+    (button :onclick "eww close logout && loginctl lock-session" " Lock")
+    (button :onclick "eww close logout && loginctl terminate-user $USER" "󰍃 Logout")
+    (button :onclick "eww close logout && systemctl reboot" " Reboot")
+    (button :onclick "eww close logout && systemctl poweroff" " Shutdown")
+  )
+)
+
+(defwindow logout
+  :monitor 0
+  :stacking "fg"
+  :exclusive false
+  :focusable false
+  :style "logout.scss"
+  :geometry (geometry :x "0px" :y "0px" :width "100%" :height "100%")
+  (logout)
+)

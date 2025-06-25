@@ -61,42 +61,35 @@ exec_always $wallpapers
 # You can also configure each device individually.
 # Read `man 5 sway-input` for more information about this section.
 
-# Effect on Sway
-    #gaps
-    gaps inner 4px
-    gaps outer 4px
-    
-    #border
-    default_border pixel 2px
-    default_floating_border pixel 2px
-    
-    #window style                   border    bg     text    indc   child_border
-    client.focused                  #000000 #ffffff #000000 #000000 #000000
-    client.unfocused                #ffffff #ffffff #000000 #ffffff #ffffff
-    blur enable
-    blur_radius                     3          
-    blur_passes                     2
-    corner_radius                   5
-    shadows enable
-    shadow_color                    #0000007F
-    dim_inactive_colors.unfocused   #000000FF
-    default_dim_inactive            0.3
-    for_window [app_id=".*"] opacity 0.9
-    for_window [class=".*"] opacity 0.9
+# Gaps between windows
+gaps inner 8px
+gaps outer 4px
 
-    for_window [class="bar"] {
-        shadow enable
-        shadow radius 30
-        shadow opacity 0.8
-        blur enable
-    }
+# Border width, I prefer THIN borders ^-^
+default_border pixel 2px
+default_floating_border pixel 2px
 
-    for_window [app_id="kitty"] floating enable, resize set 800 500, move position center
-    for_window [title="wlogout"] blur enable, floating enable, opacity 1.0
+# The border colors:
 
+#                         border    bg        text      ind       child border
+client.focused          #0a0a0a #141216 #d8cab8 #0a0a0a #0a0a0a
+client.focused_inactive #333333 #141216 #d8cab8 #333333 #333333
+client.unfocused        #333333 #141216 #d8cab8 #333333 #333333
+client.urgent           #fcb167 #141216 #d8cab8 #fcb167 #fcb167
+client.placeholder      #333333 #141216 #d8cab8 #333333 #333333
 
+# Optional: remove or keep depending on style
+# Efek shadow
+shadows enable
+shadow_color        #00000088
+shadow_offset       5 5
+blur enable
+blur_radius 5
+blur_passes 3
 
-    
+for_window [app_id="tofi"] blur enable
+for_window [app_id="kitty"] floating enable, resize set 800 500, move position center
+
 
 ### Key bindings
 #
@@ -122,7 +115,16 @@ exec_always $wallpapers
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    #bindsym $mod+Shift+e exec ~/.config/sway/scripts/wlogout.sh
+
+
+    bindsym Escape exec "eww close logout"
+
+    # Buka logout + masuk mode logout
+    bindsym $mod+Shift+e exec "eww open logout"
+
+
 #
 # Moving around:
 #
@@ -232,10 +234,7 @@ bindsym $mod+r mode "resize"
 
 # Special key to take a screenshot with grim
 
-    bindsym Print exec sh -c 'grim -g "$(slurp)" ~/Pictures/screenshot.png && imv ~/Pictures/screenshot.png'
-
-
-
+    bindsym Print exec sh -c 'grim -g "$(slurp)" ~/Pictures/screenshot.png && imv ~/Pictures/screenshot $date.png'
 
 #
 # Status Bar:
